@@ -1,0 +1,43 @@
+setwd('/home/neik/Kaggle/WalmartRecruiting/')
+
+dfStore <- read.csv(file='stores.csv')
+dfTrain <- read.csv(file='train.csv')
+dfTest <- read.csv(file='test.csv')
+dfFeatures <- read.csv(file='features.csv')
+
+store <- unique(dfFeatures$Store)
+# extrapolate CPI for missing values
+# missing Unemployments were replaced by the unemplyment of nearest month
+for (i in store) {
+  cpi <- dfFeatures[dfFeatures$Store==i, ]$CPI
+  ls1 <- na.omit(cpi)
+  dd <- mean(ls1[2:length(ls1)]-ls1[1:length(ls1)-1])
+  cpi[is.na(cpi)] <- seq(1,length(cpi)-length(ls1))*dd + ls1[length(ls1)]
+  dfFeatures[dfFeatures$Store==i, ]$CPI <- cpi
+  
+  uep <- dfFeatures[dfFeatures$Store==i, ]$Unemployment
+  ls2 <- na.omit(uep)
+  uep[is.na(uep)] <- ls2[length(ls2)]
+  dfFeatures[dfFeatures$Store==i, ]$Unemployment <- uep
+}
+# replace missing Markdowns by median
+dfFeatures$MarkDown1[is.na(dfFeatures$MarkDown1)] <- median(dfFeatures$MarkDown1, na.rm=TRUE)
+dfFeatures$MarkDown2[is.na(dfFeatures$MarkDown2)] <- median(dfFeatures$MarkDown2, na.rm=TRUE)
+dfFeatures$MarkDown3[is.na(dfFeatures$MarkDown3)] <- median(dfFeatures$MarkDown3, na.rm=TRUE)
+dfFeatures$MarkDown4[is.na(dfFeatures$MarkDown4)] <- median(dfFeatures$MarkDown4, na.rm=TRUE)
+dfFeatures$MarkDown5[is.na(dfFeatures$MarkDown5)] <- median(dfFeatures$MarkDown5, na.rm=TRUE)
+
+# Merge Type and Size
+dfTrainTmp <- merge(x=dfTrain, y=dfStore, all.x=TRUE)
+dfTestTmp <- merge(x=dfTest, y=dfStore, all.x=TRUE)
+
+# Merge all the features
+dfTrainMerged <- merge(x=dfTrainTmp, y=dfFeatures, all.x=TRUE)
+dfTestMerged <- merge(x=dfTestTmp, y=dfFeatures, all.x=TRUE)
+
+# Save datasets
+write.table(x=dfTrainMerged,file='trainMerged.csv',            
+            sep=',', row.names=FALSE, quote=FALSE)
+write.table(x=dfTestMerged,file='testMerged.csv',            
+            sep=',', row.names=FALSE, quote=FALSE)
+
