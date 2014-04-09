@@ -36,8 +36,7 @@ dfTrainMerged <- merge(x=dfTrainTmp, y=dfFeatures, all.x=TRUE)
 dfTestMerged <- merge(x=dfTestTmp, y=dfFeatures, all.x=TRUE)
 
 # Save datasets
-write.table(x=dfTrainMerged,file='trainMerged.csv',            
-            sep=',', row.names=FALSE, quote=FALSE)
-write.table(x=dfTestMerged,file='testMerged.csv',            
-            sep=',', row.names=FALSE, quote=FALSE)
+write.table(x=dfTrainMerged,file='trainMerged.csv', sep=',', row.names=FALSE, quote=FALSE)
+write.table(x=dfTestMerged,file='testMerged.csv', sep=',', row.names=FALSE, quote=FALSE)
+            
 
