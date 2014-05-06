@@ -1,13 +1,7 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <codecell>
-
 import numpy as np
 import pandas as pd
 from datetime import datetime
 
-# <codecell>
 
 def rawProcess():
     '''    Markdowns were filled with median from R program. Type is converted to 3 binary types: A, B, C.    '''
@@ -65,7 +59,6 @@ def rawProcess():
     
     return rawtrain, rawtest
 
-# <codecell>
 
 def localDeptWeight(data_train, dept_numb):
     '''This weight is for single store by department'''
@@ -170,7 +163,6 @@ def fineProcess(data_train, data_test, dept_numb,
     
     return rawtrain, rawtest
 
-# <codecell>
 
 def wmae(y0,y,wx):
     ''' Weighted Mean Absolute Value'''
@@ -179,7 +171,6 @@ def wmae(y0,y,wx):
     result = 1.0*np.dot(temp, w)/np.sum(w)
     return result
 
-# <codecell>
 
 def fw_transform(target,lbd):
     '''Box-Cox forward transformation'''
@@ -193,7 +184,6 @@ def bw_transform(target,lbd):
     target = temp-1001
     return target
 
-# <codecell>
 
 def fw_log_transform(target):
     '''Log forward transformation'''
@@ -206,4 +196,3 @@ def bw_log_transform(target):
     temp = np.exp(target)
     target = 500*(temp-10.)
     return target
-
