@@ -44,7 +44,7 @@ dfTestTmp <- merge(x=dfTest, y=dfStore, all.x=TRUE)
 dfTrainMerged <- merge(x=dfTrainTmp, y=dfFeatures, all.x=TRUE)
 dfTestMerged <- merge(x=dfTestTmp, y=dfFeatures, all.x=TRUE)
 
-<<<<<<< HEAD
+
 # Sort the data by store, dept, date
 dfTrainMerged <- dfTrainMerged[with(dfTrainMerged, order(Store, Dept, Date)), ]
 dfTestMerged <- dfTestMerged[with(dfTestMerged, order(Store, Dept, Date)), ]
@@ -75,8 +75,3 @@ dfTestMerged <- dfTestMerged[with(dfTestMerged, order(Store, Dept, Date)), ]
 # Save datasets
 write.table(x=dfTrainMerged,file='trainMerged.csv', sep=',', row.names=FALSE, quote=FALSE)
 write.table(x=dfTestMerged,file='testMerged.csv', sep=',', row.names=FALSE, quote=FALSE)
-            
->>>>>>> 7bd30054f3b2b31be4c0833abc9ec0831fb49dcb
-
-# subTrain <- dfTrainMerged[(dfTrainMerged$haveMarkDown==1 & dfTrainMerged$Store==1), markdowns]
-# plot(subTrain$MarkDown5, subTrain$Weekly_Sales)
