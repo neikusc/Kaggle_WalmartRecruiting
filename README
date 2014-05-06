@@ -1,8 +1,8 @@
-My solution for Kaggle-Walmart Recruting competition.
+My solution for Kaggle-Walmart Recruiting competition.
 
-1. Run merge.R file to merge all 'csv' files: features, stores, train, test into trainMerged.csv and testMerged.csv for data analysis.
+1. Run merge.R file to merge all 'csv' files: {features, stores, train, test} into trainMerged.csv and testMerged.csv for later analysis.
 
-2. Main program "main.py" will engineer new features such as types of stores, high weekly-sales months and holidays.
+2. Main program "main.py" will engineer new features such as types of stores, months with high weekly-sales and holidays, ...
 
 3. funcs.py and load_data.py contains functions supporting main program.
 
