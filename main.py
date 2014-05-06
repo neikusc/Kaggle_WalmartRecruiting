@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <codecell>
-
 # ============***================ #
 # Author: Kien Trinh, Physics PhD #
 # ============***================ #
@@ -19,13 +14,11 @@ from sklearn.ensemble import ExtraTreesRegressor
 from funcs import *
 from load_data import *
 
-# <codecell>
 
 vars = {'var1'   :   ['IsHoliday','beHoliday','afHoliday','Size','Temperature','Fuel_Price','CPI','Unemployment', 
                       'TypeA','TypeB','TypeC','store_weight','store_std','store_month_weight','store_month_std','haveMarkDown',
                       'MarkDown1','MarkDown2','MarkDown3','MarkDown4','MarkDown5','Feb','Apr','Oct','Nov','Dec','Other_Month']}
 
-# <codecell>
 
 ''''Load merged data and do build new features such as types of stores, months with high sales, ...'''
 
@@ -36,7 +29,6 @@ all_data = {"rawtrain": train,
 print "Saving dataset."
 pickle.dump(all_data, gzip.open('dataMerged00.pickle.gz','w'), protocol=pickle.HIGHEST_PROTOCOL)
 
-# <codecell>
 
 if __name__ == '__main__':
     t0 = time.clock()
@@ -83,6 +75,5 @@ if __name__ == '__main__':
 
     print 'Running time = ' + str(time.clock() - t0)
 
-# <codecell>
 
 
