@@ -4,7 +4,7 @@ My solution for Kaggle-Walmart Recruiting competition.
 
 2. Main program "main.py" will engineer new features such as types of stores, months with high weekly-sales and holidays, ...
 
-3. funcs.py and load_data.py contains functions supporting main program.
+3. funcs.py and load_data.py contain functions which are called in the main program.
 
 
 ==========***==========
