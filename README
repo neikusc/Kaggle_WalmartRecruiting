@@ -12,7 +12,7 @@ Results for each model:
 a. ETS ((Error-Trend-Seasonal or ExponenTial Smoothing): 2914.54504
 b. ARIMA model: 2919.96171
 c. Naive model: 3040.06382
-d. Gradien Boosting: 2914.54504
+d. Gradien Boosting: 2942.33245
 
 A straight forward average of 4 models gives: 2780.97862 at place 46/694
 
